@@ -10,7 +10,7 @@
 			<h1>Log into localhost</h1>
 			<input type="text" name="username" placeholder="User" value="root" autofocus>
 			<input type="password" name="password" placeholder="Password">
-			<input type="text" name="db" placeholder="Database Name" value="sql_tutorial" readonly>
+			<input type="text" name="db" placeholder="Database Name" value="sql_playground" readonly>
 			<button type="submit" name="login">Log In</button>
 		</form>
 		</div>';
@@ -42,7 +42,7 @@
 				<h5 class="error">Incorrect Username / Password / Database Name</h5>
 				<input type="text" name="username" placeholder="User" value="root" autofocus>
 				<input type="password" name="password" placeholder="Password">
-				<input type="text" name="db" placeholder="Database Name" value="sql_tutorial">
+				<input type="text" name="db" placeholder="Database Name" value="sql_playground">
 				<button type="submit" name="login">Log In</button>
 			</form>
 			</div>';
@@ -1071,16 +1071,16 @@
 	(29, 'Forets d''erables', 'Chantal Goulet', '148 rue Chasseur', 'Ste-Hyacinthe', 'J2S 7S8', 'Canada', '(514) 555-2955');
 	";
 	if (isset($_POST['restore']) && $_POST['restore_pass'] == 'RESTORE') {
-		// checking if the database name is sql_tutorial
+		// checking if the database name is sql_playground
 		$result_set = mysqli_query($connection, "SELECT DATABASE() current_db");
 		$result = mysqli_fetch_assoc($result_set);
-		if ($result['current_db'] == 'sql_tutorial') {
+		if ($result['current_db'] == 'sql_playground') {
 			// restore database
 			mysqli_multi_query($connection, $db_data);
 			$message = 'Database Restored!';
 			$query = "SHOW TABLES";
 		} else {
-			$message = 'Incorrect Database! Please select the Database: sql_tutorial from Login Window.';
+			$message = 'Incorrect Database! Please select the Database: sql_playground from Login Window.';
 		}
 	}
 	if (isset($_POST['submit'])) {
